@@ -1,0 +1,94 @@
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.box {
+  flex: 1;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.logo h2 {
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.logo p {
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+.input {
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+input {
+  padding: 10px;
+  width: 70%; /* Adjusted width for better responsiveness */
+  border: none;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size:1rem;
+}
+
+button:hover {
+  background-color: red;
+}
+
+.box h3 {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin-right: 2rem;
+  line-height: 2.4rem;
+}
+
+li:hover {
+  color: red;
+  scale: 1.5;
+}
+
+.legal {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 2rem;
+  font-weight: bolder;
+}
+
+.legal:hover {
+  color: red;
+}
