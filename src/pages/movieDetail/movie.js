@@ -6,14 +6,25 @@ import ActorImage from "../../Logo/movie.png";
 const Movie = () => {
     const [currentMovieDetail, setMovie] = useState();
     const [castData, setCastData] = useState([]);
+    const [director, setDirector] = useState("");
     const { id } = useParams();
 
     const getData = useCallback(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
-        .then((res) => res.json())
-        .then((data) => setMovie(data));
-    }, [id]);
-
+          .then((res) => res.json())
+          .then(async (data) => {
+            setMovie(data);
+            
+            // Fetch additional details, including crew information
+            const crewResponse = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`);
+            const crewData = await crewResponse.json();
+      
+            // Set director information
+            const directorInfo = crewData.crew.find((member) => member.job === "Director");
+            setDirector(directorInfo?.name || "");
+          });
+     }, [id]);
+      
     const getCast = useCallback(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`)
         .then((res) => res.json())
@@ -64,6 +75,8 @@ const Movie = () => {
                         </div>
                     </div>
                     
+                    <h3 className = "director">Director : {director ? director : "Not Found"}</h3>
+
                     <div className="movie__detailRightBottom">
                         <div className="synopsisText">Synopsis</div>
                         <div>{currentMovieDetail ? currentMovieDetail.overview : ""}</div>

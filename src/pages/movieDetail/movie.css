@@ -165,3 +165,10 @@
   line-height: 2.1rem;
   color: whitesmoke;
 }
+
+.director {
+   font-size: 2rem;
+   font-weight: bolder;
+   line-height: 3rem;
+   margin-top:2rem;
+}
