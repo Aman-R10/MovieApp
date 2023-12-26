@@ -6,6 +6,9 @@ import MovieList from './components/movieList/movieList';
 import Movie from './pages/movieDetail/movie';
 import Footer from './components/footer/footer';
 
+import SearchResult from './pages/search/searchResult';
+
+
 function App() {
   return (
     <div className="App">
@@ -15,7 +18,8 @@ function App() {
                 <Route index element={<Home />}></Route>
                 <Route path="movie/:id" element={<Movie />}></Route>
                 <Route path="movies/:type" element={<MovieList />}></Route>
-                <Route path="/*" element={<h1>Error Page hai</h1>}></Route>
+                <Route path="search/:query" element={<SearchResult />}/>
+                <Route path="/*" element={<h1>Error Page hai</h1>} />
             </Routes>
           <Footer/>
         </Router>
